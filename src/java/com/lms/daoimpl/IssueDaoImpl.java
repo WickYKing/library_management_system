@@ -41,6 +41,7 @@ public class IssueDaoImpl implements IssueDao {
             pstmt.setDate(5, createdDate);
             pstmt.setInt(6, issue.getCreatedBy().getId());
 
+
             row = pstmt.executeUpdate();
 
         } catch (Exception ex) {
@@ -64,6 +65,7 @@ public class IssueDaoImpl implements IssueDao {
             pstmt.setDate(4, updatedDate);
             pstmt.setInt(5, issue.getUpdatedBy().getId());
             pstmt.setInt(6, issue.getId());
+         
 
             row = pstmt.executeUpdate();
 
@@ -109,9 +111,11 @@ public class IssueDaoImpl implements IssueDao {
                 Book book = new Book();
                 book.setId(rs.getInt("book-id"));
                 Student student = new Student();
+//                student.setName(rs.getString("student-name"));
                 student.setId(rs.getInt("student-id"));
                 User user = new User();
                 user.setId(rs.getInt("issued-by"));
+                
 
                 Role r1 = new Role();
                 r1.setId(rs.getInt("created_by"));
@@ -121,6 +125,7 @@ public class IssueDaoImpl implements IssueDao {
                 issue.setBook(book);
                 issue.setStudent(student);
                 issue.setIssuedBy(user);
+                issue.setIssueDate(rs.getDate("issue-date"));
                 issue.setCreateDate(rs.getDate("create_date"));
                 issue.setCreatedBy(r1);
                 issue.setUpdateDate(rs.getDate("update_date"));
@@ -141,7 +146,7 @@ public class IssueDaoImpl implements IssueDao {
         ResultSet rs = null;
         try {
 
-            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM public.issue WHERE status>0");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM public.issue WHERE status > 0");
 
             rs = pstmt.executeQuery();
 
@@ -164,10 +169,13 @@ public class IssueDaoImpl implements IssueDao {
                 issue.setBook(book);
                 issue.setStudent(student);
                 issue.setIssuedBy(user);
+                issue.setIssueDate(rs.getDate("issue-date"));
                 issue.setCreateDate(rs.getDate("create_date"));
                 issue.setCreatedBy(r1);
                 issue.setUpdateDate(rs.getDate("update_date"));
                 issue.setUpdatedBy(r2);
+                System.out.println("-----------------------------------------------------------------");
+                System.out.println("student:" + student);
 
                 allIssue.add(issue);
             }
@@ -217,6 +225,10 @@ public class IssueDaoImpl implements IssueDao {
             ex.printStackTrace();
         }
         return row;
+    }
+
+    private Date issueDate() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

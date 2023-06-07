@@ -53,7 +53,7 @@
                                         <div class="form-group"><label style="color: rgb(31,40,81);font-size: 16px;font-weight: bold;">Contact</label><input name="contact" class="form-control" type="tel" style="border-color: rgb(31,40,81);color: rgb(31,40,81);font-size: 14px;"></div>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
-                                        <div class="form-group"><label style="color: rgb(31,40,81);font-size: 16px;font-weight: bold;">Date of Birth</label><input name="date-of-birht" class="form-control" type="date" style="border-color: rgb(31,40,81);font-size: 14px;color: rgb(31,40,81);"></div>
+                                        <div class="form-group"><label style="color: rgb(31,40,81);font-size: 16px;font-weight: bold;">Date of Birth</label><input name="date-of-birth" class="form-control" type="date" style="border-color: rgb(31,40,81);font-size: 14px;color: rgb(31,40,81);"></div>
                                     </div>
                             </div>
                             <hr style="background-color: #fff;">

@@ -8,7 +8,7 @@
  session = request.getSession();
  User user = (User) session.getAttribute("user");
  
- String[] names = user.getName().split(" ");
+ //String[] names = user.getName().split(" ");
  
  if(user != null){
  %>
@@ -36,12 +36,7 @@
                                 <hr style="background-color: rgb(31,40,81);">
                                 <div class="form-row">
                                     <div class="col-sm-12 col-md-6">
-                                        <div class="form-group"><label style="color: rgb(31,40,81);font-weight: bold;font-size: 16px;">First Name </label><input class="form-control" value="<%=names[0] %>" type="text" name="firstname" style="border-color: rgb(31,40,81);color: rgb(31,40,81);font-size: 14px;"
-                                                ></div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="form-group"><label style="color: rgb(31,40,81);font-weight: bold;font-size: 16px;">Last Name </label><input class="form-control" value="<%=names[1] %>" type="text" name="lastname" style="border-color: rgb(31,40,81);color: rgb(31,40,81);font-size: 14px;"
-                                                ></div>
+                                        <div class="form-group"><label style="color: rgb(31,40,81);font-weight: bold;font-size: 16px;">Name </label><input class="form-control" value="<%=user.getName() %>" type="text" name="name" style="border-color: rgb(31,40,81);color: rgb(31,40,81);font-size: 14px;"></div>
                                     </div>
                                 </div>
                                 <div class="form-group"><label style="color: rgb(31,40,81);font-size: 16px;font-weight: bold;">Email </label><input class="form-control" value="<%=user.getEmail() %>" type="email" autocomplete="off" required="" name="email" style="border-color: rgb(31,40,81);color: rgb(31,40,81);font-size: 14px;"
@@ -50,7 +45,7 @@
                                         autofocus="" ></div>
                                 <hr style="background-color: rgb(31,40,81);">
                                 <div class="form-row">
-                                    <div class="col-md-12 content-right"><a class="btn btn-primary form-btn" role="button" href="Handle?action=<%="update" %>" style="background-color: rgb(31,40,81);border-color: rgb(31,40,81);">EDIT</a><button class="btn btn-danger form-btn" type="reset" style="background-color: rgb(31,40,81);border-color: rgb(31,40,81);">CANCEL </button></div>
+                                    <div class="col-md-12 content-right"><a class="btn btn-primary form-btn" role="button" href="Handle?action=<%="update" %>" style="background-color: rgb(31,40,81);border-color: rgb(31,40,81);">UPDATE</a><button class="btn btn-danger form-btn" type="reset" style="background-color: rgb(31,40,81);border-color: rgb(31,40,81);">CANCEL </button></div>
                                 </div>
                             </div>
                         </div>

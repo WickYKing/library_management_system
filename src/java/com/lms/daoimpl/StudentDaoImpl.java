@@ -77,7 +77,8 @@ public class StudentDaoImpl implements StudentDao {
     public Integer deleteStudent(Integer id) {
         Integer row = null;
         try {
-
+            java.sql.Date updatedDate = new Date(new java.util.Date().getTime());
+            
             PreparedStatement pstmt = conn.prepareStatement("UPDATE public.student SET status=0 WHERE id=?");
             pstmt.setInt(1, id);
 

@@ -27,10 +27,11 @@ import com.lms.util.Database;
  */
 @WebServlet("/Student")
 public class StudentServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	RoleDao roleDaoImpl = new RoleDaoImpl(Database.getConnection());
-	StudentDao studentDaoImpl = new StudentDaoImpl(Database.getConnection());
-       
+
+    private static final long serialVersionUID = 1L;
+    RoleDao roleDaoImpl = new RoleDaoImpl(Database.getConnection());
+    StudentDao studentDaoImpl = new StudentDaoImpl(Database.getConnection());
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -39,100 +40,111 @@ public class StudentServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		HttpSession session = request.getSession();
-		User u = (User)session.getAttribute("user");
-		
-		String firstname = request.getParameter("firstname");
-		String lastname = request.getParameter("lastname");
-                String roll_no = request.getParameter("roll_no");
-		String email = request.getParameter("email");
-		String contact = request.getParameter("contact");
-		String sDate1= request.getParameter("date-of-birht");
-		
-		 Date date = null;
-		try {
-			
-			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-			date = dateFormat.parse(sDate1);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}  
-		
-		String action = request.getParameter("action");
-		
-		Student student = null;
-		Integer result = null;
-		
-		System.out.print("Action is: "+action);
-		
-		switch (action) {
-		case "add":
-			student = new Student();
-			student.setName(firstname+" "+lastname);
-                        student.setRollNo(roll_no);
-			student.setEmail(email);
-			student.setDateOfBirth(date);
-			student.setContact(contact);
-			
-			Role createdBy = roleDaoImpl.getRoleById(u.getRole().getId());
-			student.setCreatedBy(createdBy);
-			
-			result = studentDaoImpl.addStudent(student);
-			
-			if (result > 0) {
-				response.sendRedirect("view-student.jsp");
-			}
-			break;
-                        
-                case "update":
-			Integer id = Integer.parseInt(request.getParameter("id"));
-			
-			student = studentDaoImpl.getStudentById(id);
-			
-			student.setName(firstname+" "+lastname);
-                        student.setRollNo(roll_no);
-			student.setEmail(email);
-			student.setDateOfBirth(date);
-			student.setContact(contact);		
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+     * response)
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//                  Role  createdBy = roleDaoImpl.getRoleById(u.getRole().getId());
-//			student.setCreatedBy(createdBy);
-			
-			
-			result = studentDaoImpl.updateStudent(student);
-			
-			if (result > 0) {
-				response.sendRedirect("view-student.jsp");
-			}
-			break;
-		case "delete":
-			id = Integer.parseInt(request.getParameter("id"));
-			
-			
-			result = studentDaoImpl.deleteStudent(id);
-			
-			if (result > 0) {
-				response.sendRedirect("view-student.jsp");
-			}
-			break;
-			
-		default:
-			break;
-		}
-	}
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("user");
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+        String firstname = request.getParameter("firstname");
+        String lastname = request.getParameter("lastname");
+        String roll_no = request.getParameter("roll_no");
+        String email = request.getParameter("email");
+        String contact = request.getParameter("contact");
+        String sDate1 = request.getParameter("date-of-birth");
+        //    System.out.println("DOB:" + sDate1);
+
+        Date date = null;
+        try {
+
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            if (sDate1 != null) {
+                date = simpleDateFormat.parse(sDate1);
+            }
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        String action = request.getParameter("action");
+
+        Student student = null;
+        Integer result = null;
+
+        System.out.print("Action is: " + action);
+
+        switch (action) {
+            case "add":
+                student = new Student();
+                student.setName(firstname + " " + lastname);
+                student.setRollNo(roll_no);
+                student.setEmail(email);
+                student.setDateOfBirth(date);
+                student.setContact(contact);
+
+                Role createdBy = roleDaoImpl.getRoleById(u.getRole().getId());
+                student.setCreatedBy(createdBy);
+
+                result = studentDaoImpl.addStudent(student);
+
+                if (result > 0) {
+                    response.sendRedirect("view-student.jsp");
+                }
+                break;
+
+            case "update":
+                Integer id = Integer.parseInt(request.getParameter("id"));
+
+                student = studentDaoImpl.getStudentById(id);
+
+                student.setName(firstname + " " + lastname);
+                student.setRollNo(roll_no);
+                student.setEmail(email);
+                student.setDateOfBirth(date);
+                student.setContact(contact);
+
+                Role role = new Role();
+
+                Role updatedBy = roleDaoImpl.getRoleById(u.getRole().getId());
+                //role.setId(u.getRole().getId());
+                //  student.setUpdatedBy(role);
+                student.setUpdatedBy(updatedBy);
+
+                result = studentDaoImpl.updateStudent(student);
+
+                System.out.print("Result : " + result);
+                if (result > 0) {
+                    response.sendRedirect("view-student.jsp");
+                }
+
+                break;
+            case "delete":
+                id = Integer.parseInt(request.getParameter("id"));
+                System.out.println("id: " + id);
+                result = studentDaoImpl.deleteStudent(id);
+
+                if (result > 0) {
+                    response.sendRedirect("view-student.jsp");
+                } else {
+                    response.getWriter().print("Error in deleting book!");
+                }
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+     * response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        doGet(request, response);
+    }
 
 }

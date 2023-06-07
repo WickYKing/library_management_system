@@ -96,17 +96,19 @@ public class BookServlet extends HttpServlet {
 		case "update":
 			
 			noOfCopies = Integer.parseInt(request.getParameter("no_of_copies"));
-			id = Integer.parseInt(request.getParameter("id"));
+                        id = Integer.parseInt(request.getParameter("id"));
+                        
 			book = bookDaoImpl.getBookById(id);
 			book.setTitle(title);
 			book.setAuthor(author);
 			book.setCategory(category);
 			book.setNoOfCopies(noOfCopies);
 			
-			Role role = new Role();
-			role.setId(u.getRole().getId());
+			//Role role = new Role();
+                        Role updatedBy = roleDaoImpl.getRoleById(u.getRole().getId());
+			//role.setId(u.getRole().getId());
 			
-			book.setUpdatedBy(role);
+			book.setUpdatedBy(updatedBy);
 			
 			result = bookDaoImpl.updateBook(book);
 			System.out.print("Result : "+result);
@@ -141,12 +143,13 @@ public class BookServlet extends HttpServlet {
 				
 				Book book2 = bookDaoImpl.getBookById(bookId);
 				Role createdBy = roleDaoImpl.getRoleById(u.getRole().getId());
-				
+                            				
 				Issue issue = new Issue();
 				issue.setBook(book2);
 				issue.setStudent(student);
 				issue.setCreatedBy(createdBy);
 				issue.setIssuedBy(u);
+                                
 				
 				result = issueDaoImpl.addIssue(issue);
 	

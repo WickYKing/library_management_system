@@ -55,7 +55,9 @@
                             <th style="color: rgb(31,40,81);font-size: 18px;">Title</th>
                             <th style="color: rgb(31,40,81);font-size: 18px;">Author</th>
                             <th style="color: rgb(31,40,81);font-size: 18px;">Category</th>
-                            <th style="color: rgb(31,40,81);font-size: 18px;">No of Copies</th>
+                            <th style="color: rgb(31,40,81);font-size: 18px;">No of Copies</th>    
+                                 
+                            
                             <th class="text-center" colspan="2" style="color: rgb(31,40,81);font-size: 18px;">Actions</th>
                         </tr>
                     </thead>
@@ -71,7 +73,7 @@
                             <td style="color: rgb(14,16,18);"><%=book.getAuthor() %></td>
                             <td style="color: rgb(14,16,18);"><%=c.getCategory() %></td>
                             <td style="color: rgb(14,16,18);"><%=book.getNoOfCopies()%></td>
-                             <% // Book?id=<%=book.getId() && action=<%="update" %>
+                             <% //Book?id=<%=book.getId() && action=<%="update" %>
                             <td style="width: 36px;"><a href="edit-book.jsp?id=<%=book.getId()%>" style="text-decoration: none;font-weight: bold;"><i class="fas fa-edit"></i></a></td>
                             <td style="width: 36px;height: 49px;"><a href="Book?id=<%=book.getId()%>&&action=<%=action %>" style="color: red;font-weight: bold;"></a><a href="Book?id=<%=book.getId()%>&&action=<%=action %>" style="text-decoration: none;font-weight: bold;"><i class="material-icons" style="width: 11;height: 13;color: rgb(255,19,34);">delete</i></a></td>
                         </tr>

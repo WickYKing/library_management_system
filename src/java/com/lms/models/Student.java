@@ -82,6 +82,15 @@ public class Student {
 	public void setStatus(int status) {
 		this.status = status;
 	}
+
+    public void setDateOfBirth(String date) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" + "id=" + id + ", rollNo=" + rollNo + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", contact=" + contact + ", email=" + email + ", createDate=" + createDate + ", createdBy=" + createdBy + ", updateDate=" + updateDate + ", updatedBy=" + updatedBy + ", status=" + status + '}';
+    }
 	
 	
 	

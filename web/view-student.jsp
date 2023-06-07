@@ -1,4 +1,6 @@
 
+<%@page import="com.lms.daoimpl.BookDaoImpl"%>
+<%@page import="com.lms.dao.BookDao"%>
 <%@page import="com.lms.util.Database"%>
 <%@page import="com.lms.models.Role"%>
 <%@page import="com.lms.daoimpl.RoleDaoImpl"%>
@@ -23,7 +25,8 @@
  List<Student> allStudent = studetDaoImpl.getAllStudent();
  
 System.out.println("Student size: "+allStudent.size());
- 
+
+ String action = "delete";
  if(user != null){
  %>
 <!DOCTYPE html>
@@ -56,17 +59,17 @@ System.out.println("Student size: "+allStudent.size());
                             <th style="color: rgb(31,40,81);font-size: 18px;">Contact</th>
                             <th style="color: rgb(31,40,81);font-size: 18px;">Email</th>
                             <th style="color: rgb(31,40,81);font-size: 18px;">Create Date</th>
-                            <th style="color: rgb(31,40,81);font-size: 18px;">Created By</th>
+                            <!--<th style="color: rgb(31,40,81);font-size: 18px;">Created By</th>-->
                             <th style="color: rgb(31,40,81);font-size: 18px;">Update Date</th>
-                            <th style="color: rgb(31,40,81);font-size: 18px;">Updated By</th>
+                            <!--<th style="color: rgb(31,40,81);font-size: 18px;">Updated By</th>-->
                             <th class="text-center" colspan="2" style="color: rgb(31,40,81);font-size: 18px;">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                
                        <% for (Student s : allStudent) { %>
-                        <%
-                            System.out.println("Created By ID: " + s.getCreatedBy().getId());
+                     <%
+                          System.out.println("Created By ID: " + s.getCreatedBy().getId());
                             Role createdBy = roleDaoImpl.getRoleById(s.getCreatedBy().getId());
                             Role updatedBy = null;
                             if (s.getUpdatedBy() != null) {
@@ -80,20 +83,20 @@ System.out.println("Student size: "+allStudent.size());
                             <td style="color: rgb(14,16,18);"><%=s.getContact() %></td>
                             <td style="color: rgb(14,16,18);"><%=s.getEmail() %></td>
                              <td style="color: rgb(14,16,18);"><%=s.getCreateDate().toString() %></td>  
-                            <td style="color: rgb(14,16,18);">--</td> 
+                              <!--<td style="color: rgb(14,16,18);"><%=s.getCreatedBy().getId() %></td>-->
+                            <td style="color: rgb(14,16,18);"><%=s.getUpdateDate() %></td> 
                             
-                            <td style="color: rgb(14,16,18);">--</td>
+<!--                            <td style="color: rgb(14,16,18);">--</td>
                           
-                            <td style="color: rgb(14,16,18);">--</td>
-                            
-                             
-                            
-                            
-                            <td style="width: 36px;"><a href="#" style="text-decoration: none;font-weight: bold;"><i class="fas fa-edit"></i></a></td>
-                            <td style="width: 36px;height: 49px;"><a href="#" style="/*text-decoration: none;*//*background-color: red;*//*color: rgb(221,16,16);*//*border: 1px solid;*//*border-radius: 5px;*//*width: 12px;*//*height: 20px;*/color: red;font-weight: bold;"></a><a href="#" style="text-decoration: none;font-weight: bold;"><i class="material-icons" style="width: 11;height: 13;color: rgb(255,19,34);">delete</i></a></td>
+                            <td style="color: rgb(14,16,18);">--</td>-->
+                     
+                       <td style="width: 36px;"><a href="edit-student.jsp?id=<%=s.getId()%>" style="text-decoration: none;font-weight: bold;"><i class="fas fa-edit"></i></a></td>
+                       <td style="width: 36px;height: 49px;"><a href="Student?id=<%=s.getId() %>&&action=<%=action %>" style="color: red;font-weight: bold;"></a><a href="Student?id=<%=s.getId()%>&&action=<%=action %>" style="text-decoration: none;font-weight: bold;"><i class="material-icons" style="width: 11;height: 13;color: rgb(255,19,34);">delete</i></a></td>
                         </tr>
+                        
                         <tr></tr>
-                        <%} %>
+                        
+                     <%} %>
                     </tbody>
                 </table>
             </div>

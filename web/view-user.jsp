@@ -52,7 +52,7 @@
                             <th style="color: rgb(31,40,81);font-size: 18px;font-family: Lora, serif;">ID</th>
                             <th style="color: rgb(31,40,81);font-size: 18px;">Name</th>
                             <th style="color: rgb(31,40,81);font-size: 18px;">Email</th>
-                            <th style="color: rgb(31,40,81);font-size: 18px;">Password</th>
+                            <!--<th style="color: rgb(31,40,81);font-size: 18px;">Password</th>-->
                             <th style="color: rgb(31,40,81);font-size: 18px;">Create Date</th>
                             <th style="color: rgb(31,40,81);font-size: 18px;">Created By</th>
                             <th style="color: rgb(31,40,81);font-size: 18px;">Update Date</th>
@@ -71,7 +71,7 @@
                             <td style="color: rgb(14,16,18);"><%=u.getId() %></td>
                             <td style="color: rgb(14,16,18);"><%=u.getName() %></td>
                             <td style="color: rgb(14,16,18);"><%=u.getEmail() %></td>
-                            <td style="color: rgb(14,16,18);"><%=u.getPassword() %></td>
+                            <!--<td style="color: rgb(14,16,18);"><%=u.getPassword() %></td>-->
                             <td style="color: rgb(14,16,18);"><%=u.getCreateDate() %></td>
                             <td style="color: rgb(14,16,18);"><%=createdBy.getRole() %></td>
                             <td style="color: rgb(14,16,18);"><%=u.getUpdateDate() %></td>

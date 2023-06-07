@@ -55,7 +55,7 @@
                                 <hr style="background-color: rgb(31,40,81);">
                                 <div class="form-row">
                                     <div class="col-sm-12 col-md-6">
-                                        <div class="form-group"><label style="color: rgb(31,40,81);font-weight: bold;font-size: 16px;">Title</label><input class="form-control" value = <%=book.getTitle() %> type="text" name="title" style="border-color: rgb(31,40,81);color: rgb(31,40,81);font-size: 14px;"></div>
+                                        <div class="form-group"><label style="color: rgb(31,40,81);font-weight: bold;font-size: 16px;">Title</label><input class="form-control" value = <%=book.getTitle()%> type="text" name="title" style="border-color: rgb(31,40,81);color: rgb(31,40,81);font-size: 14px;"></div>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group"><label style="color: rgb(31,40,81);font-weight: bold;font-size: 16px;">Author&nbsp;</label><input class="form-control" value=<%=book.getAuthor() %> type="text" name="author" style="border-color: rgb(31,40,81);color: rgb(31,40,81);font-size: 14px;"></div>
@@ -78,7 +78,8 @@
                                 
                                 </optgroup></select></div>
                                 <div
-                                    class="form-group"><label style="color: rgb(31,40,81);font-size: 16px;font-weight: bold;">No of Copies</label><input name="no-of-copies" value=<%=book.getNoOfCopies() %> class="form-control" type="number" style="border-color: rgb(31,40,81);"></div>
+                                    class="form-group"><label style="color: rgb(31,40,81);font-size: 16px;font-weight: bold;">No of Copies</label><input name="no-of-copies" value=<%=book.getNoOfCopies() %> class="form-control" type="number" style="border-color: rgb(31,40,81);">
+                                </div>
                             <hr style="background-color: #fff;">
                             <div class="form-row">
                                 <div class="col-md-12 content-right"><button class="btn btn-primary form-btn" type="submit" style="background-color: rgb(31,40,81);border-color: rgb(31,40,81);">Update</button><button class="btn btn-danger form-btn" type="reset" style="background-color: rgb(31,40,81);border-color: rgb(31,40,81);">CANCEL </button></div>
