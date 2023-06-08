@@ -78,7 +78,7 @@
                                 
                                 </optgroup></select></div>
                                 <div
-                                    class="form-group"><label style="color: rgb(31,40,81);font-size: 16px;font-weight: bold;">No of Copies</label><input name="no-of-copies" value=<%=book.getNoOfCopies() %> class="form-control" type="number" style="border-color: rgb(31,40,81);">
+                                    class="form-group"><label style="color: rgb(31,40,81);font-size: 16px;font-weight: bold;">No of Copies</label><input name="no_of_copies" value=<%=book.getNoOfCopies() %> class="form-control" type="number" style="border-color: rgb(31,40,81);">
                                 </div>
                             <hr style="background-color: #fff;">
                             <div class="form-row">

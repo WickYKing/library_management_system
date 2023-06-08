@@ -73,7 +73,9 @@ public class BookDaoImpl implements BookDao {
             System.out.println("ERROR: " + ex.getMessage());
             ex.printStackTrace();
         }
+//        System.out.println("Chek :"+ row);
         return row;
+        
     }
 
     @Override

@@ -52,8 +52,8 @@
     <div class="features-boxed" style="background-color: #fff;">
         <div class="container" style="background-color: #fff;">
             <div class="intro">
-                <h2 class="text-center">MyLib </h2>
-                <p class="text-center">"I have always imagined that Paradise will be a kind of a Library."</p>
+                <h2 class="text-center">Library Management System</h2>
+                <p class="text-center">"I have always imagined that paradise will be a kind of library."</p>
             </div>
             <div class="row justify-content-center features" style="background-color: #fff;">
                 <div class="col-sm-6 col-md-5 col-lg-4 item" style="background-color: #fff;">

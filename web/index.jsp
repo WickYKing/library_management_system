@@ -9,7 +9,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>Login - Brand</title>
+        <title>Login - Home</title>
         <link rel="stylesheet" href="login assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -34,7 +34,7 @@
                                         </div>
                                         <form class="user" method="Post" action="Handle?action=<%=action%>">
                                             <div class="form-group"><input required class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email" style="border-color: rgb(31,40,81);"></div>
-                                            <div class="form-group"><input required class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Password" name="password" style="border-color: rgb(31,40,81)> <i class="far fa-eye" id="exampleInputPassword" style="margin-left: -30px; cursor: pointer;></i>"></div>
+                                            <div class="form-group"><input required class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Password" name="password" style="border-color: rgb(31,40,81);"></div>
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox small"></div>
                                             </div><button class="btn btn-block text-white btn-user" type="submit" style="background-color: rgb(31,40,81);/*border-color: rgb(31,40,81);*/">Login</button>
@@ -53,16 +53,6 @@
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
         <script src="assets/js/theme.js"></script>
-         <script>
-function myFunction() {
-  var x = document.getElementById("exampleInputPassword");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
-</script>
 
     </body>
 

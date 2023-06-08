@@ -60,12 +60,13 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>Issue</th>
-                                <th>Book</th>
-                                <th>Student</th>
-                                <th>Issue Date</th>
-                                <th>Issue By</th>
-                                <th>Status</th>
+                                <!--<th style="color: rgb(31,40,81);font-size: 18px;">Issue</th>-->
+                                <th style="color: rgb(31,40,81);font-size: 18px;font-family: Lora, serif;">ID</th>
+                                <th style="color: rgb(31,40,81);font-size: 18px;">Book Id</th>
+                                <th style="color: rgb(31,40,81);font-size: 18px;">Student</th>
+                                <th style="color: rgb(31,40,81);font-size: 18px;">Issue Date</th>
+                                <th style="color: rgb(31,40,81);font-size: 18px;">Issue By</th>
+                                <th style="color: rgb(31,40,81);font-size: 18px;">Status</th>
                                 
                                 <!--<th>Action</th>-->
                                 <!--                                <th style="color: rgb(31,40,81);font-size: 18px;font-family: Lora, serif;">ID</th>

@@ -174,8 +174,8 @@ public class IssueDaoImpl implements IssueDao {
                 issue.setCreatedBy(r1);
                 issue.setUpdateDate(rs.getDate("update_date"));
                 issue.setUpdatedBy(r2);
-                System.out.println("-----------------------------------------------------------------");
-                System.out.println("student:" + student);
+//                System.out.println("-----------------------------------------------------------------");
+//                System.out.println("student:" + student);
 
                 allIssue.add(issue);
             }
